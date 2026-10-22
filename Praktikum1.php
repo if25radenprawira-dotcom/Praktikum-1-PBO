@@ -8,6 +8,7 @@ class Produk {
 
     public const PAJAK = 0.11;
 
+    // Menggunakan static method
     public static function pajak() {
         return self::PAJAK * 100;
     }
@@ -29,6 +30,6 @@ $formatTotal = "Rp" . number_format($produk->total(), 0, ',', '.');
 echo "Produk: " . $produk->nama . "\n";
 echo "Harga: " . $formatHarga . "\n";
 echo "Stok: " . $produk->stok . "\n";
-// Dipanggil menggunakan nama Class::method()
+
 echo "Pajak: " . Produk::pajak() . "%\n";
 echo "Total harga setelah pajak: " . $formatTotal . "\n";
