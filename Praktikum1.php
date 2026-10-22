@@ -1,6 +1,7 @@
 <?php
 
 class Produk {
+
     public string $kode;
     public string $nama;
     public int $harga;
@@ -8,8 +9,7 @@ class Produk {
 
     public const PAJAK = 0.11;
 
-    // Menggunakan static method
-    public static function pajak() {
+    public function pajak() {
         return self::PAJAK * 100;
     }
 
@@ -18,18 +18,22 @@ class Produk {
     }
 }
 
-$produk = new Produk();
+$produk = new produk();
 $produk->kode = 'P001';
 $produk->nama = 'Laptop';
 $produk->harga = 10000000;
 $produk->stok = 5;
 
-$formatHarga = "Rp" . number_format($produk->harga, 0, ',', '.');
-$formatTotal = "Rp" . number_format($produk->total(), 0, ',', '.');
+echo "Produk: ". $produk->nama;
+echo "<br/>";
 
-echo "Produk: " . $produk->nama . "\n";
-echo "Harga: " . $formatHarga . "\n";
-echo "Stok: " . $produk->stok . "\n";
+echo "Harga: ". $produk->harga;
+echo "<br/>";
 
-echo "Pajak: " . Produk::pajak() . "%\n";
-echo "Total harga setelah pajak: " . $formatTotal . "\n";
+echo "Stok: ". $produk->stok;
+echo "<br/>";
+
+echo "Pajak: ". $produk->pajak(). "%";
+echo "<br/>";
+
+echo "Total harga setelah pajak: Rp.". $produk->total();
